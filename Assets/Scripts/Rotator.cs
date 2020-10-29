@@ -17,7 +17,7 @@ public class Rotator : MonoBehaviour
     {
     	transform.Rotate(new Vector3(15,30,45)*Time.deltaTime);
     	float dist=Vector3.Distance(player.transform.position,transform.position);
-    	if (dist<5){
+    	if (dist<8){
     		transform.position+=offset;
     	}
 
