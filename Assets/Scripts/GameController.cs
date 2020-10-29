@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     public float speed ;
     private int count;
-    private int numPickups=4;
+    private int numHumans=4;
     public Text scoreText;
     public Text winText;
     public Text playPosition;
@@ -41,8 +41,8 @@ public class GameController : MonoBehaviour
 
     public void SetCountText(){
     	scoreText.text="Score: "+count.ToString();
-    	if(count>=numPickups){
-    		winText.text="You win!";
+    	if(count>=numHumans){
+    		winText.text="Group Bullying!";
     	}
     }
     public void SetPositionText(){
