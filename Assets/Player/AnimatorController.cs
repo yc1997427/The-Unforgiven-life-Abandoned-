@@ -19,12 +19,18 @@ public class AnimatorController : MonoBehaviour
         bool isBackwards = animator.GetBool("isBackwards");
         bool isRight = animator.GetBool("isRight");
         bool isLeft = animator.GetBool("isLeft");
+        bool isJumpUp = animator.GetBool("isJumpUp");
         bool w_pressed = Input.GetKey("w") || Input.GetKey("up");
         bool s_pressed = Input.GetKey("s") || Input.GetKey("down");
         bool a_pressed = Input.GetKey("a") || Input.GetKey("left");
         bool d_pressed = Input.GetKey("d") || Input.GetKey("right");
         bool shift_pressed = Input.GetKey("left shift");
-        
+        bool space_pressed = Input.GetKey("space");
+
+
+
+        //BASIC MOVEMENT: 
+
         // when character isn't jogging and player presses w
         if (!isJogging && w_pressed)
         {
@@ -39,19 +45,6 @@ public class AnimatorController : MonoBehaviour
             animator.SetBool("isJogging", false);
         }
 
-        // when character isn't running and player presses left shift with w
-        if (!isRunning && (shift_pressed && w_pressed))
-        {
-            // set isRunning to true (start forward run animation)
-            animator.SetBool("isRunning", true);
-        }
-
-        // when character is running and player either leaves left shift or w
-        if (isRunning && (!shift_pressed || !w_pressed))
-        {
-            // set isRunning to false (stop forward run animation)
-            animator.SetBool("isRunning", false);
-        }
 
         // when character isn't moving backwards and player presses s
         if (!isBackwards && s_pressed)
@@ -93,6 +86,41 @@ public class AnimatorController : MonoBehaviour
         {
             //set isRight to true (stop right strafe animation) 
             animator.SetBool("isRight", false);
+        }
+
+
+        //SPRINT:
+
+        // when character isn't running and player presses left shift with w
+        if (!isRunning && (shift_pressed && w_pressed))
+        {
+            // set isRunning to true (start forward run animation)
+            animator.SetBool("isRunning", true);
+        }
+
+        // when character is running and player either leaves left shift or w
+        if (isRunning && (!shift_pressed || !w_pressed))
+        {
+            // set isRunning to false (stop forward run animation)
+            animator.SetBool("isRunning", false);
+        }
+
+
+
+        //JUMP:
+
+        // when character isn't already in jump state and player presses spacebar
+        if (!isJumpUp && space_pressed)
+        {
+            //set isJumpUp to true (start jump up animation)
+            animator.SetBool("isJumpUp", true);
+        }
+
+        // when character is in the air and player leaves spacebar
+        if (isJumpUp && !space_pressed)
+        {
+            //set isJumpUp to false (end jump up animation)
+            animator.SetBool("isJumpUp", false);
         }
 
     }
