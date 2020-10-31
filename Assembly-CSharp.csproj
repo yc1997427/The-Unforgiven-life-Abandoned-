@@ -56,12 +56,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Rotator.cs" />
-    <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\AnimatorController.cs" />
-    <Compile Include="Assets\MovementController.cs" />
-    <Compile Include="Assets\FollowPlayer.cs" />
+    <Compile Include="Assets\Enemy\Rotator.cs" />
+    <Compile Include="Assets\Camera\FollowPlayer.cs" />
+    <Compile Include="Assets\Player\AnimatorController.cs" />
+    <Compile Include="Assets\Player\MovementController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
