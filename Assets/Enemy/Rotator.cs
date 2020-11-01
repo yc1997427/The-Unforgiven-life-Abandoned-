@@ -8,6 +8,7 @@ public class Rotator : MonoBehaviour
 
     public GameObject player;
     private Vector3 offset;
+    public float speed;
 
     void Start(){
     	offset=transform.position;
@@ -17,8 +18,10 @@ public class Rotator : MonoBehaviour
     {
     	transform.Rotate(new Vector3(15,30,45)*Time.deltaTime);
     	float dist=Vector3.Distance(player.transform.position,transform.position);
-    	if (dist<8){
-    		transform.position+=offset;
+
+    	if (dist<10){
+    		Vector3 movement=new Vector3(1,0,1);
+            transform.position=transform.position+(movement *speed);
     	}
 
     }
