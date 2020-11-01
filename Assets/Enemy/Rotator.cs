@@ -20,8 +20,10 @@ public class Rotator : MonoBehaviour
     	float dist=Vector3.Distance(player.transform.position,transform.position);
 
     	if (dist<10){
-
-    		Vector3 movement=new Vector3(2,0,2);
+ 
+            int x=Random.Range(-1,1);
+            int z=Random.Range(-1,1);
+    		Vector3 movement=new Vector3(x,0,z);
             transform.position=transform.position+(movement *speed);
 
     	}
