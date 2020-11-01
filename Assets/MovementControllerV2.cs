@@ -17,7 +17,17 @@ public class MovementControllerV2 : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Vector3 playerMovement = new Vector3(horizontal, 0f, vertical) * speed * Time.deltaTime;
-        transform.Translate(playerMovement, Space.Self);
+        if (Input.GetKey("left shift"))
+        {
+            Vector3 playerMovement = new Vector3(horizontal, 0f, vertical) * speed * 1.5f * Time.deltaTime;
+            transform.Translate(playerMovement, Space.Self);
+        }
+        else
+        {
+            Vector3 playerMovement = new Vector3(horizontal, 0f, vertical) * speed * Time.deltaTime;
+            transform.Translate(playerMovement, Space.Self);
+        }
+        
+        
     }
 }

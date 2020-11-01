@@ -116,8 +116,8 @@ public class AnimatorController : MonoBehaviour
             animator.SetBool("isJumpUp", true);
         }
 
-        // when character is in the air and player leaves spacebar
-        if (isJumpUp && !space_pressed)
+            // when character is in the air and player leaves spacebar
+            if (isJumpUp && !space_pressed)
         {
             //set isJumpUp to false (end jump up animation)
             animator.SetBool("isJumpUp", false);
