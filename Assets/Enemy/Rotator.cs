@@ -20,7 +20,7 @@ public class Rotator : MonoBehaviour
     	float dist=Vector3.Distance(player.transform.position,transform.position);
 
     	if (dist<10){
-    		Vector3 movement=new Vector3(1,0,1);
+    		Vector3 movement=new Vector3(2,0,2);
             transform.position=transform.position+(movement *speed);
     	}
 
