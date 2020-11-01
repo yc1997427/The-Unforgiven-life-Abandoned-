@@ -20,12 +20,17 @@ public class AnimatorController : MonoBehaviour
         bool isRight = animator.GetBool("isRight");
         bool isLeft = animator.GetBool("isLeft");
         bool isJumpUp = animator.GetBool("isJumpUp");
+        bool isPunchLeft = animator.GetBool("isAttackLeft");
+        bool isPuncRight = animator.GetBool("isAttackRight");
         bool w_pressed = Input.GetKey("w") || Input.GetKey("up");
         bool s_pressed = Input.GetKey("s") || Input.GetKey("down");
         bool a_pressed = Input.GetKey("a") || Input.GetKey("left");
         bool d_pressed = Input.GetKey("d") || Input.GetKey("right");
+        bool lmb_pressed = Input.GetMouseButton(0);
+        bool rmb_pressed = Input.GetMouseButton(1);
         bool shift_pressed = Input.GetKey("left shift");
         bool space_pressed = Input.GetKey("space");
+        
 
 
 
@@ -121,6 +126,38 @@ public class AnimatorController : MonoBehaviour
         {
             //set isJumpUp to false (end jump up animation)
             animator.SetBool("isJumpUp", false);
+        }
+
+
+        //Attack:
+
+        // when character isn't already in left attack animation and presses LMB
+        if (!isPunchLeft && lmb_pressed)
+        {
+            //set isAttackLeft to true (start punch with left arm animation)
+            animator.SetBool("isAttackLeft", true);
+        }
+
+        // when character is in left attack animation and player leaves LMB
+        if (isPunchLeft && !lmb_pressed)
+        {
+            //set isAttackLeft to false (stop punch with left arm animation)
+            animator.SetBool("isAttackLeft", false);
+        }
+
+
+        // when character isn't already in Right attack animation and presses RMB
+        if (!isPuncRight && rmb_pressed)
+        {
+            //set isAttackRight to true (start punch with right arm animation)
+            animator.SetBool("isAttackRight", true);
+        }
+
+        // when character is in right attack animation and player leaves RMB
+        if (isPuncRight && !rmb_pressed)
+        {
+            //set isAttackRight to false (stop punch with right arm animation)
+            animator.SetBool("isAttackRight", false);
         }
 
     }
