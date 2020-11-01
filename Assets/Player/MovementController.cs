@@ -7,6 +7,7 @@ public class MovementController : MonoBehaviour
 {
     public float speed = 1f;
     public CharacterController controller;
+    public Vector3 direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class MovementController : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+        direction = new Vector3(horizontal, 0, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)
         {
