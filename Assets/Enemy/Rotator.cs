@@ -9,9 +9,11 @@ public class Rotator : MonoBehaviour
     public GameObject player;
     private Vector3 offset;
     public float speed;
+    private Rigidbody rb;
 
     void Start(){
     	offset=transform.position;
+        rb=GetComponent<Rigidbody>();
     }
     // Update is called once per frame
     void Update()
@@ -19,12 +21,12 @@ public class Rotator : MonoBehaviour
     	transform.Rotate(new Vector3(15,30,45)*Time.deltaTime);
     	float dist=Vector3.Distance(player.transform.position,transform.position);
 
-    	if (dist<10){
+    	if (dist<20){
  
             int x=Random.Range(-1,1);
             int z=Random.Range(-1,1);
     		Vector3 movement=new Vector3(x,0,z);
-            transform.position=transform.position+(movement *speed);
+            rb.MovePosition(transform.position+(player.transform.forward*Time.deltaTime*speed));
 
     	}
 
